@@ -1,12 +1,12 @@
-*build
+* build
 
- g++ -o sudoku sudoku.cpp -lcurses
+ `g++ -o sudoku sudoku.cpp -lcurses`
 
-*run
+* run
 
- ./sudoku
+ `./sudoku`
 
-*screenshot
+* screenshot
 
 ![screenshot](screenshot.png)
  
