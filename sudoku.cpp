@@ -30,7 +30,7 @@ class sudoku
 
         int table[9][9];
         int table_answer[9][9];
-        int init_tatal_numbers;
+        int init_total_numbers;
         bool official_table[9][9];
         int TOTAL_MIN,TOTAL_MAX;
         int draw_table_x_start;
@@ -114,16 +114,16 @@ void sudoku::generate()
     memcpy(table,table_t,sizeof(table));
     solve(0,0);
 
-    static default_random_engine e;
+    default_random_engine e;
     e.seed(time(0));
-    static uniform_int_distribution<unsigned> 
+    uniform_int_distribution<unsigned> 
         total_numbers(TOTAL_MIN,TOTAL_MAX),
         get_number(1,9),
         get_shuffle_times(0,10),
         get_position(0,8);
 
     memset(official_table,0,sizeof(official_table));
-    init_tatal_numbers = total_numbers(e);
+    init_total_numbers = total_numbers(e);
 
     int shuffle_times = get_shuffle_times(e);
     int shuffle_table[9] = {1,2,3,4,5,6,7,8,9};
@@ -149,7 +149,7 @@ void sudoku::generate()
         }
     }
     memcpy(table_answer,table,sizeof(table));
-    for(int i=0;i<81-init_tatal_numbers;)
+    for(int i=0;i<81-init_total_numbers;)
     {
         int row = get_position(e);
         int col = get_position(e);
@@ -270,7 +270,7 @@ void sudoku::play()
     getmaxyx(stdscr,maxy,maxx);
     int table_row=0,table_col=0;
     move(getScrY(table_row),getScrX(table_col));
-    int to_fill = 81 - init_tatal_numbers;
+    int to_fill = 81 - init_total_numbers;
     while(1)
     {
         char key = getch();
