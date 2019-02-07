@@ -63,18 +63,18 @@ void sudoku::run()
             switch (c)
             {
                 case '1':
-                    TOTAL_MAX = 40;
-                    TOTAL_MIN = 35;
+                    TOTAL_MAX = 50;
+                    TOTAL_MIN = 40;
                     flag = true;
                 break;
 
                 case '2':
-                    TOTAL_MAX = 35;
-                    TOTAL_MIN = 25; 
+                    TOTAL_MAX = 40;
+                    TOTAL_MIN = 30; 
                     flag = true;
                     break;
                 case '3':
-                    TOTAL_MAX = 25;
+                    TOTAL_MAX = 30;
                     TOTAL_MIN = 20;
                     flag = true;
                     break;
