@@ -13,8 +13,7 @@ using std::uniform_int_distribution;
 class sudoku
 {
     public:
-        sudoku();
-        // sudoku(int total_min,int total_max);
+        sudoku(){};
         void run();
 
     private:
@@ -38,11 +37,6 @@ class sudoku
         int draw_table_y_start;
         int draw_table_y_end;
 };
-
-sudoku::sudoku()
-{
-
-}
 
 void sudoku::run()
 {
