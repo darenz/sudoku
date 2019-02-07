@@ -8,5 +8,5 @@
 
 *screenshot
 
-![screenshot][screenshot.png]
+![screenshot](screenshot.png)
  
