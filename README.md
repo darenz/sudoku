@@ -5,4 +5,8 @@
 *run
 
  ./sudoku
+
+*screenshot
+
+![screenshot][screenshot.png]
  
