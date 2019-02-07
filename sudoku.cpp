@@ -258,7 +258,7 @@ void sudoku::draw()
     }
     string s1 = "VIM STYLE -- Up:k Down:j Left:h Right:l";
     string s2 = "NORMAL STYLE -- Up:w Down:s Left:a Right:d";
-    string s3 = "Quit:q Restart:r Answer:z Hint:?";
+    string s3 = "Erase:space Quit:q Restart:r Answer:z Hint:?";
     mvaddstr(draw_table_y_end+1,(getmaxx(stdscr) - s1.size())/2,s1.c_str());
     mvaddstr(draw_table_y_end+2,(getmaxx(stdscr) - s2.size())/2,s2.c_str());
     mvaddstr(draw_table_y_end+3,(getmaxx(stdscr) - s3.size())/2,s3.c_str());
