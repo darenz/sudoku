@@ -322,6 +322,7 @@ void sudoku::play()
             clear();
             solve(0,0);
             draw();
+            to_fill = 0;
         }
         else if(key == '?')
         {
@@ -340,15 +341,20 @@ void sudoku::play()
                 table[table_row][table_col] = key-'0';
                 addch(key);
                 move(y,x); //填完后光标复原
-                //jugde
-                to_fill--;
+                if(key!=' ')
+                    to_fill--;
             }
         }
         else
             beep();
         
         if(to_fill == 0)
-            return;
+        {
+
+            string s = "FINISHED! Press r to continue";
+            attron(COLOR_PAIR(1));
+            mvaddstr(draw_table_y_start-1,(maxx-s.size())/2,s.c_str());
+        }
     }
 }
 
