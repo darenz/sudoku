@@ -29,6 +29,7 @@ class sudoku
         int getScrY(int y);
 
         int table[9][9];
+        int table_answer[9][9];
         int init_tatal_numbers;
         bool official_table[9][9];
         int TOTAL_MIN,TOTAL_MAX;
@@ -147,6 +148,7 @@ void sudoku::generate()
             table[i][j] = shuffle_table[table[i][j]-1];
         }
     }
+    memcpy(table_answer,table,sizeof(table));
     for(int i=0;i<81-init_tatal_numbers;)
     {
         int row = get_position(e);
@@ -256,7 +258,7 @@ void sudoku::draw()
     }
     string s1 = "VIM STYLE -- Up:k Down:j Left:h Right:l";
     string s2 = "NORMAL STYLE -- Up:w Down:s Left:a Right:d";
-    string s3 = "Quit:q Restart:r Answer:z";
+    string s3 = "Quit:q Restart:r Answer:z Hint:?";
     mvaddstr(draw_table_y_end+1,(getmaxx(stdscr) - s1.size())/2,s1.c_str());
     mvaddstr(draw_table_y_end+2,(getmaxx(stdscr) - s2.size())/2,s2.c_str());
     mvaddstr(draw_table_y_end+3,(getmaxx(stdscr) - s3.size())/2,s3.c_str());
@@ -320,6 +322,14 @@ void sudoku::play()
             clear();
             solve(0,0);
             draw();
+        }
+        else if(key == '?')
+        {
+            int ans = table_answer[table_row][table_col];
+            table[table_row][table_col] = ans;
+            addch(ans+'0');
+            move(y,x);
+            to_fill--;
         }
         else if( key>='1' && key<='9' || key==' ')//空格键消除        
         {//生成的数不允许覆盖
